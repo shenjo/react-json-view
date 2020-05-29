@@ -1,0 +1,86 @@
+.react-json-view {
+  width: 100%;
+
+  .copy-to-clipboard-container {
+    vertical-align: top;
+    display: none;
+  }
+
+  .click-to-add {
+    display: none;
+  }
+
+  .click-to-remove {
+    display: none;
+  }
+
+  .click-to-edit {
+    display: none;
+  }
+
+  .object-key-val {
+    & span{
+      line-height: 100%;
+      vertical-align: middle;
+    }
+
+    &:hover > span > .object-meta-data {
+      & > .copy-to-clipboard-container {
+        display: inline-block;
+      }
+
+      & > .click-to-add {
+        display: inline-block;
+      }
+
+      & > .click-to-remove {
+        display: inline-block;
+      }
+    }
+  }
+
+  .variable-row {
+    &:hover {
+      & .copy-to-clipboard-container {
+        display: inline-block;
+      }
+    }
+  }
+
+  .object-content .variable-row {
+    display: flex;
+    align-items: center;
+    & .variable-value > div:not([style]):not([class]){
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover .click-to-remove {
+      display: inline-block;
+    }
+
+    &:hover .click-to-edit {
+      display: inline-block;
+    }
+  }
+}
+
+
+.vertical-align {
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+.add-check-box-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.flex-vertical-center {
+  display: flex;
+  align-items: center;
+}

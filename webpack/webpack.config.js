@@ -49,17 +49,17 @@ const config = {
         include: [PATHS.js]
       },
       {
-        test: /\.s?css$/,
-        use: [
+        test:/\.less$/,
+        use:[
+          'style-loader',
           {
-            loader: "style-loader"
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
           },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
+          'less-loader'
         ]
       }
     ]

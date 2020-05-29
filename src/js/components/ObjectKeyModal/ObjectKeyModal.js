@@ -32,16 +32,14 @@ export default class extends React.PureComponent {
                     {...Theme(theme, 'key-modal')}
                     onClick={(e)=>{e.stopPropagation();}}
                 >
-                    <div {...Theme(theme, 'key-modal-label')}>
-                    Key Name:
-                    </div>
+                    <div {...Theme(theme, 'key-modal-label')}>JSON key值</div>
                     <div style={{position: 'relative'}}>
                         <input {...Theme(theme, 'key-modal-input')}
                             class="key-modal-input"
                             ref={el => el && el.focus()}
                             spellCheck={false}
                             value={input}
-                            placeholder="..."
+                            placeholder="请输入JSON key..."
                             onChange={(e)=>{
                                 this.setState({
                                     input: e.target.value

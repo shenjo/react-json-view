@@ -1,6 +1,6 @@
 import {EventEmitter} from 'events';
 import dispatcher from './../helpers/dispatcher';
-import {toType} from './../helpers/util';
+import {toType} from '../helpers/util';
 
 //store persistent display attributes for objects and arrays
 class ObjectAttributes extends EventEmitter {
@@ -115,9 +115,9 @@ class ObjectAttributes extends EventEmitter {
         const type = toType(src);
         let result;
         let idx = copy_namespace.shift();
-        if (type == 'array') {
+        if (type === 'array') {
             result = [...src];
-        } else if (type == 'object') {
+        } else if (type === 'object') {
             result = {...src};
         }
         if (idx !== undefined) {
