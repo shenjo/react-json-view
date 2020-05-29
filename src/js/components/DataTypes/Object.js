@@ -9,7 +9,6 @@ import VariableMeta from './../VariableMeta';
 import ArrayGroup from './../ArrayGroup';
 import ObjectName from './../ObjectName';
 //attribute store
-import AttributeStore from './../../stores/ObjectAttributes';
 //icons
 import { CollapsedIcon, ExpandedIcon } from '../ToggleIcons';
 //theme
@@ -46,12 +45,7 @@ class RjvObject extends React.PureComponent {
       //initialize closed if object has no items
       size !== 0;
     return {
-      expanded: AttributeStore.get(
-        props.rjvId,
-        props.namespace,
-        'expanded',
-        expanded
-      ),
+      expanded,
       object_type: props.type === 'array' ? 'array' : 'object',
       parent_type: props.type === 'array' ? 'array' : 'object',
       size
@@ -78,13 +72,7 @@ class RjvObject extends React.PureComponent {
   toggleCollapsed = () => {
     this.setState({
       expanded: !this.state.expanded
-    }, () => {
-      AttributeStore.set(
-        this.props.rjvId,
-        this.props.namespace,
-        'expanded',
-        this.state.expanded
-      );
+      
     });
   };
   
