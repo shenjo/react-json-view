@@ -1,7 +1,8 @@
 [Main Change]
 
 1. sass=> less + css modules
-2. own style
+2. modify value support object str
+3. own style
 
 
 ![alt text](https://github.com/mac-s-g/react-json-view/blob/master/doc/rjv-icon-alt.png?raw=true)
