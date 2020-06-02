@@ -61,6 +61,10 @@ const config = {
           },
           'less-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file-loader'
       }
     ]
   }

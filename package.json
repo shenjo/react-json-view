@@ -1,8 +1,7 @@
 {
-    "name": "react-json-view",
-    "description":
-        "Interactive react component for displaying javascript arrays and JSON objects.",
-    "version": "1.19.1",
+    "name": "react-json-view-fork",
+    "description": "Interactive react component for displaying javascript arrays and JSON objects.",
+    "version": "1.0.0",
     "main": "dist/main.js",
     "dependencies": {
         "classnames": "^2.2.6",
@@ -12,6 +11,7 @@
         "react-textarea-autosize": "^6.1.0"
     },
     "devDependencies": {
+        "@svgr/webpack": "^5.4.0",
         "babel-core": "^6.26.3",
         "babel-eslint": "^8.2.5",
         "babel-loader": "^7.1.4",
@@ -30,6 +30,7 @@
         "eslint": "^5.0.1",
         "eslint-plugin-babel": "^5.1.0",
         "eslint-plugin-react": "^7.10.0",
+        "file-loader": "^6.0.0",
         "html-webpack-plugin": "2.30.1",
         "ignore-styles": "^5.0.1",
         "istanbul": "^0.4.5",
