@@ -71,25 +71,44 @@
     border: 1px solid #d9d9d9;
   }
 
+  input{
+    border: 1px solid #E6E6E6;
+  }
+
   input:focus {
     outline: 0;
-    border-color: #40a9ff;
+    border-color: #1B8ADB;
   }
 
   .key-model-label {
     width: 100%;
-    padding: 3px 6px;
+    height: 32px;
+    padding: 3px 32px 3px 16px;
     font-family: monospace;
     box-sizing: border-box;
     color: rgba(0, 0, 0, .65);
     border-radius: 2px;
+
+    &::-webkit-input-placeholder{color:#999;opacity: 0.5}
+  }
+
+  .submit-add-key{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 100%;
+    cursor: pointer;
   }
 
   @svgSize:15px;
   .key-modal-cancel {
     position: absolute;
-    top: 3px;
-    right: 5px;
+    top: 16px;
+    right: 16px;
     border-radius: 50%;
     width: @svgSize;
     height: @svgSize;
@@ -99,6 +118,10 @@
     .delete-svg {
       width: @svgSize;
       height: @svgSize;
+      color:#ccc;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }

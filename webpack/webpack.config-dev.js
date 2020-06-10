@@ -64,8 +64,14 @@ const config = {
       },
       {
         test: /\.svg$/,
-        loader: 'file-loader'
-      }
+        use: {
+          loader: 'url-loader',
+          options: { // 配置参数
+            name: '[name]_[hash].[ext]', // 使用图片的名字，并使用图片的后缀
+            limit: 10240
+          }
+        }
+      },
     ]
   }
 }

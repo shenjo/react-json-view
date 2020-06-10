@@ -1,7 +1,7 @@
 {
     "name": "react-json-view-fork",
     "description": "Interactive react component for displaying javascript arrays and JSON objects.",
-    "version": "1.0.0",
+    "version": "1.0.7",
     "main": "dist/main.js",
     "dependencies": {
         "classnames": "^2.2.6",
@@ -51,6 +51,7 @@
         "sass-loader": "^6.0.7",
         "sinon": "^4.5.0",
         "style-loader": "^0.18.2",
+        "url-loader": "^4.1.0",
         "webpack": "^3.12.0",
         "webpack-bundle-size-analyzer": "^2.7.0",
         "webpack-dev-server": "^2.11.2"
@@ -61,7 +62,6 @@
     },
     "scripts": {
         "build": "webpack --config webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
-        "build:demo": "webpack --config webpack/webpack.config-demo.js -p --display-error-details --progress --optimize-minimize",
         "dev": "webpack-dev-server --config webpack/webpack.config-dev.js --open",
         "modules:debug": "./docker/debug.sh",
         "modules:tree": "webpack --config webpack/webpack.config.js --json ",
@@ -71,7 +71,8 @@
         "test:coverage": "nyc report --reporter=text-lcov | coveralls",
         "test:watch": "nyc mocha -w test/**/*-test.js",
         "lint": "./node_modules/.bin/eslint src",
-        "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix"
+        "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
+        "send": "npm run build && npm publish ."
     },
     "repository": {
         "type": "git",

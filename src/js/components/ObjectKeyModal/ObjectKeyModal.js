@@ -1,7 +1,7 @@
 import React from 'react';
 import dispatcher from './../../helpers/dispatcher';
 
-import { CheckCircle, Add as Cancel } from './../icons';
+import { CheckCircle, Add as Cancel, getIconStyle } from './../icons';
 
 //global theme
 import Theme from './../../themes/getStyle';
@@ -24,13 +24,20 @@ export default class extends React.PureComponent {
     const valid = isValid(input);
     const keyModalStyle = { ...Theme(theme, 'key-modal') };
     keyModalStyle.style.background = '#fff';
-    keyModalStyle.style.boxShadow = 'rgba(0,0,0,0.1) 0px 0px 10px';
+    keyModalStyle.style.padding = '16px';
+    keyModalStyle.style.width = '240px';
+    keyModalStyle.style.boxShadow = 'rgba(153, 153, 153, 0.5) 0px 2px 6px';
     
     const keyModalLabel = { ...Theme(theme, 'key-modal-label') };
     keyModalLabel.style.color = '#000';
+    keyModalLabel.style.marginBottom = '8px';
+    keyModalLabel.style.fontSize = '14px';
     
     const inputStyle = { ...Theme(theme, 'key-modal-input') };
     inputStyle.style.border = undefined;
+    
+    const checkIconStyle ={...Theme(theme, 'key-modal-submit')}
+    delete checkIconStyle.style.position
     
     return (
       <div
@@ -42,13 +49,13 @@ export default class extends React.PureComponent {
           {...keyModalStyle}
           onClick={(e) => {e.stopPropagation();}}
         >
-          <div {...keyModalLabel}>JSON key值</div>
+          <div {...keyModalLabel}>新增key</div>
           <div style={{ position: 'relative' }}>
             <input className={Styles['key-model-label']}
                    ref={el => el && el.focus()}
                    spellCheck={false}
                    value={input}
-                   placeholder="请输入JSON key..."
+                   placeholder="请输入key..."
                    onChange={(e) => {
                      this.setState({
                        input: e.target.value
@@ -63,10 +70,11 @@ export default class extends React.PureComponent {
                    }}
             />
             {valid
-              ? <CheckCircle {...Theme(theme, 'key-modal-submit')}
-                             class="key-modal-submit"
-                             onClick={e => this.submit()}
-              />
+              ?
+              (<div className={Styles['submit-add-key']} onClick={e => this.submit()}>
+                <CheckCircle {...checkIconStyle}
+                             class="key-modal-submit"/>
+              </div>)
               : null}
           </div>
           <span className={Styles['key-modal-cancel']} onClick={()=>{
