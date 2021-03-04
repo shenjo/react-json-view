@@ -26,6 +26,7 @@ export default class extends React.PureComponent {
     keyModalStyle.style.background = '#fff';
     keyModalStyle.style.padding = '16px';
     keyModalStyle.style.width = '240px';
+    keyModalStyle.style.lineHeight = '20px';
     keyModalStyle.style.boxShadow = 'rgba(153, 153, 153, 0.5) 0px 2px 6px';
     
     const keyModalLabel = { ...Theme(theme, 'key-modal-label') };
