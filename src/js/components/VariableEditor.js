@@ -42,7 +42,7 @@ class VariableEditor extends React.PureComponent {
       }
     };
   }
-  
+
   render () {
     const {
       variable,
@@ -59,7 +59,7 @@ class VariableEditor extends React.PureComponent {
       rjvId
     } = this.props;
     const { editMode } = this.state;
-    
+
     return (
       <div
         {...Theme(theme, 'objectKeyVal', {
@@ -133,10 +133,10 @@ class VariableEditor extends React.PureComponent {
       </div>
     );
   }
-  
+
   getEditIcon = () => {
     const { variable, theme } = this.props;
-    
+
     return (
       <div className={classNames(Styles['click-to-edit'],Styles['vertical-align'])} style={{ verticalAlign: 'top' }}>
         <Edit
@@ -149,7 +149,7 @@ class VariableEditor extends React.PureComponent {
       </div>
     );
   };
-  
+
   prepopInput = variable => {
     if (this.props.onEdit !== false) {
       const stringifiedValue = stringifyVariable(variable.value);
@@ -164,10 +164,10 @@ class VariableEditor extends React.PureComponent {
       });
     }
   };
-  
+
   getRemoveIcon = () => {
     const { variable, namespace, theme, rjvId } = this.props;
-    
+
     return (
       <div className={classNames(Styles['click-to-remove'],Styles['vertical-align'])} style={{ verticalAlign: 'top' }}>
         <Remove
@@ -189,7 +189,7 @@ class VariableEditor extends React.PureComponent {
       </div>
     );
   };
-  
+
   getValue = (variable, editMode) => {
     const type = editMode ? false : variable.type;
     const { props } = this;
@@ -225,11 +225,11 @@ class VariableEditor extends React.PureComponent {
         );
     }
   };
-  
+
   getEditInput = () => {
     const { theme } = this.props;
     const { editValue } = this.state;
-    
+
     return (
       <div>
         <AutosizeTextarea
@@ -284,11 +284,12 @@ class VariableEditor extends React.PureComponent {
               this.submitEdit();
             }}
           />
+          <div>{this.showDetected()}</div>
         </div>
       </div>
     );
   };
-  
+
   submitEdit = submit_detected => {
     const { variable, namespace, rjvId } = this.props;
     const { editValue, parsedInput } = this.state;
@@ -311,7 +312,7 @@ class VariableEditor extends React.PureComponent {
       }
     });
   };
-  
+
   showDetected = () => {
     const { theme, variable, namespace, rjvId } = this.props;
     const { type, value } = this.state.parsedInput;
@@ -337,13 +338,13 @@ class VariableEditor extends React.PureComponent {
       );
     }
   };
-  
+
   getDetectedInput = () => {
     const { parsedInput } = this.state;
     const { type, value } = parsedInput;
     const { props } = this;
     const { theme } = props;
-    
+
     if (type !== false) {
       switch (type.toLowerCase()) {
         case 'object':
